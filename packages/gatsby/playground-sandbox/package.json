@@ -12,6 +12,6 @@
     "next": "canary",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
-    "rimraf": "^3.0.2"
+    "rimraf": "^4.0.0"
   }
 }
