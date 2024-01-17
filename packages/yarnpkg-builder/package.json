@@ -5,8 +5,8 @@
   "bin": "./sources/boot-cli-dev.js",
   "dependencies": {
     "@babel/core": "^7.10.2",
-    "@yarnpkg/cli": "workspace:^",
-    "@yarnpkg/core": "workspace:^",
+    "@yarnpkg/cli": "2.1.0",
+    "@yarnpkg/core": "2.1.0",
     "@yarnpkg/esbuild-plugin-pnp": "workspace:^",
     "@yarnpkg/fslib": "workspace:^",
     "@yarnpkg/pnpify": "workspace:^",
