@@ -29,7 +29,7 @@
     "date-fns": "^2.0.0-beta.2",
     "dedent": "^0.7.0",
     "es6-promise": "^4.2.6",
-    "gatsby": "^3.7.0",
+    "gatsby": "^5.13.2",
     "gatsby-image": "^3.7.0",
     "gatsby-plugin-algolia-docsearch": "portal:./gatsby-plugin-algolia-docsearch",
     "gatsby-plugin-catch-links": "^3.7.0",
