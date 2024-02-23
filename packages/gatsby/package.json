@@ -45,7 +45,7 @@
     "gatsby-remark-prismjs": "^5.4.0",
     "gatsby-remark-table-of-contents": "^1.0.0",
     "gatsby-source-filesystem": "^3.7.0",
-    "gatsby-transformer-remark": "^4.4.0",
+    "gatsby-transformer-remark": "^6.0.0",
     "gatsby-transformer-sharp": "^3.7.0",
     "highlight.js": "^9.15.8",
     "indent-string": "^4.0.0",
