@@ -28,7 +28,7 @@
     "lodash": "^4.17.15",
     "micromatch": "^4.0.2",
     "p-limit": "^2.2.0",
-    "semver": "^7.1.2",
+    "semver": "^7.6.0",
     "strip-ansi": "^6.0.0",
     "tar": "^6.0.5",
     "tinylogic": "^2.0.0",
