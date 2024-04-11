@@ -12,7 +12,7 @@
     "enquirer": "^2.3.6",
     "lodash": "^4.17.15",
     "semver": "^7.1.2",
-    "ssri": "^6.0.1",
+    "ssri": "^6.0.2",
     "tslib": "^2.4.0"
   },
   "peerDependencies": {
