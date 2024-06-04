@@ -13,7 +13,7 @@
     "clipanion": "^4.0.0-rc.2",
     "git-url-parse": "^13.1.0",
     "lodash": "^4.17.15",
-    "semver": "^7.1.2",
+    "semver": "^7.6.0",
     "tslib": "^2.4.0"
   },
   "peerDependencies": {
