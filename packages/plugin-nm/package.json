@@ -12,7 +12,7 @@
     "@yarnpkg/nm": "workspace:^",
     "@yarnpkg/parsers": "workspace:^",
     "@yarnpkg/plugin-pnp": "workspace:^",
-    "@yarnpkg/pnp": "workspace:^",
+    "@yarnpkg/pnp": "2.1.0",
     "@zkochan/cmd-shim": "^5.1.0",
     "clipanion": "^4.0.0-rc.2",
     "tslib": "^2.4.0"
