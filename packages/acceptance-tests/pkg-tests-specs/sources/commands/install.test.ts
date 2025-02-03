@@ -109,6 +109,33 @@ describe(`Commands`, () => {
       }),
     );
 
+    tests.testIf(
+      () => process.platform !== `win32`,
+      `it should install from zips that are symlinks`,
+      makeTemporaryEnv({
+        dependencies: {
+          [`no-deps`]: `1.0.0`,
+        },
+      }, async ({path, run, source}) => {
+        await run(`install`);
+
+        const allFiles = await xfs.readdirPromise(ppath.join(path, `.yarn/cache`));
+        const zipFiles = allFiles.filter(file => file.endsWith(`.zip`));
+
+        await xfs.mkdirPromise(ppath.join(path, `store`));
+        for (const filename of zipFiles) {
+          const zipFile = ppath.join(path, `.yarn/cache`, filename);
+          const storePath = ppath.join(path, `store`, filename);
+          await xfs.movePromise(zipFile, storePath);
+          await xfs.symlinkPromise(storePath, zipFile);
+        }
+
+        await xfs.removePromise(ppath.join(path, Filename.pnpCjs));
+
+        await run(`install`, `--immutable`);
+      }),
+    );
+
     test(
       `it should refuse to create a lockfile when using --immutable`,
       makeTemporaryEnv({
@@ -897,6 +924,31 @@ describe(`Commands`, () => {
         await expect(run(`install`, `--mode=update-lockfile`, `--immutable`, `--immutable-cache`)).rejects.toMatchObject({
           code: 1,
           stdout: expect.stringMatching(/--immutable and --immutable-cache cannot be used with --mode=update-lockfile/g),
+        });
+      }),
+    );
+
+    test(`it should exit with an error code after an unexpected empty event loop`,
+      makeTemporaryEnv({}, async ({path, run}) => {
+        await xfs.writeFilePromise(ppath.join(path, `plugin.cjs`), `
+module.exports = {
+  name: 'test',
+  factory() {
+    return {
+      hooks: {
+        afterAllInstalled: () => new Promise(() => {}),
+      },
+    };
+  },
+};
+`);
+        await xfs.writeJsonPromise(ppath.join(path, Filename.rc), {
+          plugins: [`./plugin.cjs`],
+        });
+
+        await expect(run(`install`)).rejects.toMatchObject({
+          code: 42,
+          stdout: expect.stringContaining(`Yarn is terminating due to an unexpected empty event loop`),
         });
       }),
     );

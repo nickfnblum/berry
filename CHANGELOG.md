@@ -8,6 +8,12 @@ Yarn now accepts sponsors! Please take a look at our [OpenCollective](https://op
 Features in `master` can be tried out by running `yarn set version from sources` in your project.
 :::
 
+- Fixes `preferInteractive` forcing interactive mode in non-TTY environments.
+- `node-modules` linker now honors user-defined symlinks for `<workspace>/node_modules` directories
+- `node-modules` linker supports hoisting into inner workspaces that are parents of other workspaces
+- `node-modules` linker attemps to hoist tree more exhaustivel until nothing can be hoisted
+- `node-modules` linker uses aggregated count of peer and regular usages to decide hoisting priority, instead of preferring peer usages over regular as before, which should result in fewer duplicates
+
 ## 4.1.0
 
 - Tweaks `-,--verbose` in `yarn workspaces foreach`; `-v` will now only print the prefixes, `-vv` will be necessary to also print the timings.
@@ -561,7 +567,7 @@ yarn set version 2.4.0
 
 ### Compatibility
 
-- Some patches went missing for TypeScript <4. This is now fixed.
+- Some patches went missing for TypeScript &lt;4. This is now fixed.
 
 - Calling `fs.exists(undefined)` won't crash anymore.
 

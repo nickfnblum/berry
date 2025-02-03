@@ -87,15 +87,9 @@ html:not([x-doc-route="/"]) footer {
   display: none;
 }
 
-html:not([x-doc-route="/"]) .main-wrapper > :last-child {
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-
-  margin-bottom: 0;
-}
-
 html.blog-wrapper .container {
   background: white;
+  border-radius: 10px;
 }
 
 @media (max-width: 996px) {
@@ -117,6 +111,14 @@ html.blog-wrapper .container {
 
 .navbar {
   top: -1px;
+  height: auto;
+}
+
+.navbar__items {
+  flex: 1 0 min-content;
+}
+.navbar__items--right {
+  margin-left: auto;
 }
 
 .navbar__brand {
@@ -170,11 +172,6 @@ html.blog-wrapper .container {
 
 html[x-doc-route^="/configuration/"] .col {
   max-width: 100% !important;
-}
-
-html:not(.docs-wrapper) .main-wrapper > .container {
-  background: #ffffff;
-  border-radius: 10px;
 }
 
 html.search-page-wrapper .main-wrapper > .container {
